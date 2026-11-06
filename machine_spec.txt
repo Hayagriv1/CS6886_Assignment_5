@@ -1,0 +1,30 @@
+# Machine specification (Q1). Fill in every field; give units. Fill in N/A if not applicable.
+
+CPU model                       : Apple M5
+Microarchitecture              : Apple M5 custom heterogeneous ARM64 CPU (performance and efficiency cores)
+Physical cores                  : 10
+Logical cores (hardware threads): 10
+Performance / efficiency cores  : 4 performance, 6 efficiency cores
+Base clock (GHz)               : N/A - no fixed vendor-published base clock; dynamic frequency scaling
+Max single-core clock (GHz)     : 4.608 GHz
+All-core clock under load (GHz) : Performance: ~3.743 GHz; efficiency: ~2.964 GHz
+SIMD instruction set and width : ARM Advanced SIMD / NEON, 128-bit; 4 FP32 elements per vector
+FMA units per core             : Performance: 4; efficiency: 3 (theoretical FMA-capable pipeline model)
+Vector registers per core      : 32 architectural SIMD/FP registers, each 128-bit (v0-v31)
+L1 data cache (per core)        : 128 KiB / performance core; 64 KiB / efficiency core
+L2 cache (size, shared by)      : 16 MiB shared by 4 performance cores; 6 MiB shared by 6 efficiency cores
+L3 cache (size, shared by)     : N/A - conventional L3 not exposed; system-level cache capacity unverified
+Cache line size (bytes)         : 128 bytes
+RAM size (GB)                   : 16 GB
+RAM type, speed (MT/s), channels: LPDDR5 (macOS-reported); transfer rate and channel configuration not exposed
+Operating system               : macOS 26.6.2 (25G83), Darwin 25.6.0
+Compiler and version           : Apple Clang 21.0.0 (clang-2100.1.1.101); OpenMP runtime: libomp 23.1.5
+
+# Derived (show the calculation in report.pdf)
+Peak FP32 GFLOP/s, one core    : 147.456 GFLOP/s (performance core)
+Peak FP32 GFLOP/s, all cores   : 1028.736 GFLOP/s (4 performance + 6 efficiency)
+Memory bandwidth (GB/s)        : 153 GB/s (got it from internet)
+Ridge point, one core (FLOP/B) : 0.964 FLOP/B
+Ridge point, all cores (FLOP/B): 6.724 FLOP/B
+
+
